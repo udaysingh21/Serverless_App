@@ -1,0 +1,11 @@
+service: my-simple-app
+provider:
+  name: aws
+  runtime: nodejs18.x
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
