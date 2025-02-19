@@ -174,7 +174,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-simple-app/dev/1739968795416-2025-02-19T12:39:55.416Z/my-simple-app.zip"
+                "S3Key": "serverless/my-simple-app/dev/1739983712920-2025-02-19T16:48:32.920Z/my-simple-app.zip"
               },
               "Handler": "handler.hello",
               "Runtime": "nodejs18.x",
@@ -192,14 +192,14 @@
               "HelloLogGroup"
             ]
           },
-          "HelloLambdaVersionGue2Viv9EiCdqbITBjRRrFfusrYr0gOGAKAZTfFL7U": {
+          "HelloLambdaVersionrLQ9MxRFYWiTKkLfVLkwiXJvaAO7Nxj4RY3LYG8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "HelloLambdaFunction"
               },
-              "CodeSha256": "QxMFzjqK3DdB1N8Ql8dwaCjuT1+/UJ5yX2A9wKhHRbs="
+              "CodeSha256": "Ht8aqN1G2aCXwiP1IatPSxvaB9ZB327ACbSQFjWxriE="
             }
           },
           "ApiGatewayRestApi": {
@@ -275,7 +275,7 @@
               "HelloLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1739968792673": {
+          "ApiGatewayDeployment1739983705960": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -337,7 +337,7 @@
           "HelloLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "HelloLambdaVersionGue2Viv9EiCdqbITBjRRrFfusrYr0gOGAKAZTfFL7U"
+              "Ref": "HelloLambdaVersionrLQ9MxRFYWiTKkLfVLkwiXJvaAO7Nxj4RY3LYG8"
             },
             "Export": {
               "Name": "sls-my-simple-app-dev-HelloLambdaFunctionQualifiedArn"
@@ -474,7 +474,7 @@
         "timeout": 6,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "HelloLambdaVersionGue2Viv9EiCdqbITBjRRrFfusrYr0gOGAKAZTfFL7U"
+        "versionLogicalId": "HelloLambdaVersionrLQ9MxRFYWiTKkLfVLkwiXJvaAO7Nxj4RY3LYG8"
       }
     },
     "configValidationMode": "warn",
@@ -493,7 +493,7 @@
     "artifact": "/Users/I528928/Desktop/Serverless_App/Serverless_App/.serverless/my-simple-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/my-simple-app/dev/1739968795416-2025-02-19T12:39:55.416Z",
+    "artifactDirectoryName": "serverless/my-simple-app/dev/1739983712920-2025-02-19T16:48:32.920Z",
     "artifact": "my-simple-app.zip"
   }
 }
