@@ -10,6 +10,6 @@ describe('hello function', () => {
     expect(result.statusCode).toBe(200);
 
     const body = JSON.parse(result.body);
-    expect(body.message).toBe('Hello, DevOps world!');
+    expect(body.message).toBe('Hello, world!');
   });
 });
