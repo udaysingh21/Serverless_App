@@ -3,7 +3,7 @@ name: Deploy Serverless App
 on:
   push:
     branches:
-      - main
+      - main  # Only runs on pushes to the 'main' branch
 
 jobs:
   deploy:
@@ -23,13 +23,13 @@ jobs:
 
       - name: Upload Coverage
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage
 
       - name: Deploy to AWS
-        if: success()
+        if: success()  # Only deploy if tests pass
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
