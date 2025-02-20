@@ -98,27 +98,16 @@
                   {
                     "Effect": "Allow",
                     "Principal": {
-                      "Service": [
-                        "lambda.amazonaws.com"
-                      ]
+                      "Service": ["lambda.amazonaws.com"]
                     },
-                    "Action": [
-                      "sts:AssumeRole"
-                    ]
+                    "Action": ["sts:AssumeRole"]
                   }
                 ]
               },
               "Policies": [
                 {
                   "PolicyName": {
-                    "Fn::Join": [
-                      "-",
-                      [
-                        "my-simple-app",
-                        "dev",
-                        "lambda"
-                      ]
-                    ]
+                    "Fn::Join": ["-", ["my-simple-app", "dev", "lambda"]]
                   },
                   "PolicyDocument": {
                     "Version": "2012-10-17",
@@ -138,9 +127,7 @@
                       },
                       {
                         "Effect": "Allow",
-                        "Action": [
-                          "logs:PutLogEvents"
-                        ],
+                        "Action": ["logs:PutLogEvents"],
                         "Resource": [
                           {
                             "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-simple-app-dev*:*:*"
@@ -182,15 +169,10 @@
               "MemorySize": 1024,
               "Timeout": 6,
               "Role": {
-                "Fn::GetAtt": [
-                  "IamRoleLambdaExecution",
-                  "Arn"
-                ]
+                "Fn::GetAtt": ["IamRoleLambdaExecution", "Arn"]
               }
             },
-            "DependsOn": [
-              "HelloLogGroup"
-            ]
+            "DependsOn": ["HelloLogGroup"]
           },
           "HelloLambdaVersionrLQ9MxRFYWiTKkLfVLkwiXJvaAO7Nxj4RY3LYG8": {
             "Type": "AWS::Lambda::Version",
@@ -207,9 +189,7 @@
             "Properties": {
               "Name": "dev-my-simple-app",
               "EndpointConfiguration": {
-                "Types": [
-                  "EDGE"
-                ]
+                "Types": ["EDGE"]
               },
               "Policy": ""
             }
@@ -218,10 +198,7 @@
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
               "ParentId": {
-                "Fn::GetAtt": [
-                  "ApiGatewayRestApi",
-                  "RootResourceId"
-                ]
+                "Fn::GetAtt": ["ApiGatewayRestApi", "RootResourceId"]
               },
               "PathPart": "hello",
               "RestApiId": {
@@ -259,10 +236,7 @@
                       },
                       ":lambda:path/2015-03-31/functions/",
                       {
-                        "Fn::GetAtt": [
-                          "HelloLambdaFunction",
-                          "Arn"
-                        ]
+                        "Fn::GetAtt": ["HelloLambdaFunction", "Arn"]
                       },
                       "/invocations"
                     ]
@@ -271,9 +245,7 @@
               },
               "MethodResponses": []
             },
-            "DependsOn": [
-              "HelloLambdaPermissionApiGateway"
-            ]
+            "DependsOn": ["HelloLambdaPermissionApiGateway"]
           },
           "ApiGatewayDeployment1739983705960": {
             "Type": "AWS::ApiGateway::Deployment",
@@ -283,18 +255,13 @@
               },
               "StageName": "dev"
             },
-            "DependsOn": [
-              "ApiGatewayMethodHelloGet"
-            ]
+            "DependsOn": ["ApiGatewayMethodHelloGet"]
           },
           "HelloLambdaPermissionApiGateway": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
-                "Fn::GetAtt": [
-                  "HelloLambdaFunction",
-                  "Arn"
-                ]
+                "Fn::GetAtt": ["HelloLambdaFunction", "Arn"]
               },
               "Action": "lambda:InvokeFunction",
               "Principal": "apigateway.amazonaws.com",
