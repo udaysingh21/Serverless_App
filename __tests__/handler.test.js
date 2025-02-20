@@ -1,7 +1,10 @@
 // __tests__/handler.test.js
 
+// Import the testing framework
+import { describe, it, expect } from '@jest/globals';
+
 // Import the function you want to test
-const { hello } = require('../handler');
+import { hello } from '../handler';
 
 describe('hello function', () => {
   it('should return a statusCode of 200 and "Hello, DevOps world!" message', async () => {
